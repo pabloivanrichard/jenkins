@@ -1,23 +1,20 @@
 @Library('jenkinsLibs') _
 pipeline {
     agent any
+parameter{
+string(name:'url',description:'Url para enviar un post')
+string(name:'message',description:"menssage que va al post")
 
+}
     stages {
-        stage('docker build') {
+        stage('request api') {
             steps {
-                script {
-                    dockerLib.build(DockerfilePath: "02-primer-pipeline/Dockerfile",
-                                    DockerImage: "caosbinario/homer_page:1.0.0-${BUILD_ID}",
-                                    DockerContext: "02-primer-pipeline")
-                }
+                echo "Url: ${params.url}"
+                echo "Url: ${params.message}"
+                apimessageSender(params.url, params.message)
+              
             }
         }
-        stage('docker push') {
-            steps {
-                script {
-                    dockerLib.push(DockerImage: "caosbinario/homer_page:1.0.0-${BUILD_ID}")
-                }
-            }
-        }
+      
     }
 }
