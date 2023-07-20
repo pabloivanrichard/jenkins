@@ -11,7 +11,10 @@ string(name:'message',description:"menssage que va al post")
             steps {
                 echo "Url: ${params.url}"
                 echo "Url: ${params.message}"
-                dockerLib.prueba("hola")
+                   script {
+                      dockerLib.prueba("hola")
+                }
+              
               
             }
         }
