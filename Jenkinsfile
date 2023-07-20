@@ -12,7 +12,7 @@ string(name:'message',description:"menssage que va al post")
                 echo "Url: ${params.url}"
                 echo "Url: ${params.message}"
                    script {
-                      dockerLib.prueba("hola")
+                      apimessageSenderLib.apimessageSender(params.url,params.message)
                 }
               
               
