@@ -1,7 +1,7 @@
 @Library('jenkinsLibs') _
 pipeline {
     agent any
-parameter{
+parameters{
 string(name:'url',description:'Url para enviar un post')
 string(name:'message',description:"menssage que va al post")
 
