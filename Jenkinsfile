@@ -11,7 +11,7 @@ string(name:'message',description:"menssage que va al post")
             steps {
                 echo "Url: ${params.url}"
                 echo "Url: ${params.message}"
-                apimessageSenderLib.apimessageSender(${params.url},${params.message})
+                apimessageSenderLib.apimessageSender(params.url,params.message)
               
             }
         }
